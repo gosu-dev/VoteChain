@@ -1,0 +1,29 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1> {{ requested_poll.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for poll_option in poll_options %}
+            <label class="container">
+                <input type="radio" name="option" value="{{ poll_option.id }}">
+                {{ poll_option.option }}
+                <br>
+                {#            <span class="checkmark"></span>#}
+            </label>
+        {% endfor %}
+        {% if role == 'author' %}
+            {% if is_active == True %}
+                <input type="submit" name="is_active" value="Close Poll">
+            {% else %}
+                <input type="submit" name="is_active" value="Open Poll">
+            {% endif %}
+            <h3> U cant vote, cuz its yours poll</h3>
+
+        {% elif is_voted == True %}
+            <h3> U already made ur choice at this pool!</h3>
+        {% else %}
+            <button type="submit"> Vote</button>
+        {% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1>
+        Input new data:
+    </h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title">
+        </div>
+{#        <div class="mb-3">#}
+{#            <label for="date_start" class="form-label">Date Start</label>#}
+{#            <input type="date" class="form-control" name="date_start" id="date_start">#}
+{#        </div>#}
+{#        <div class="mb-3">#}
+{#            <label for="date_end" class="form-label">Date End</label>#}
+{#            <input type="date" class="form-control" name="date_end" id="date_end">#}
+{#        </div>#}
+        <button onclick="add_more_fields()" type="button"> Add vote options</button>
+        <div id="poll_options">
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {#    <h1>How many options it should contain?</h1>#}
+    {#    <input type="number" min="1" max="10" name="options_count">#}
+    {#    <button type="submit"> Add vote options </button>#}
+
+{% endblock %}

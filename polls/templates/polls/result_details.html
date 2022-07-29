@@ -1,0 +1,19 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1> {{ poll_title }} </h1>
+        <table style="width:100%">
+            {% for option, votes in option_votes_dict %}
+            <tr>
+                <td>{{ option }}</td>
+            </tr>
+            <tr>
+            {% if votes == 1 %}
+                <td>{{ votes }} Vote</td>
+            {% else %}
+                <td>{{ votes }} Votes</td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

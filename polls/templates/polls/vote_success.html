@@ -1,0 +1,6 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <h1> Congrats!!! Your vote is made</h1>
+    <button><a href="{% url 'polls_list' %}"/>Go back to polls list</button>
+{% endblock %}
